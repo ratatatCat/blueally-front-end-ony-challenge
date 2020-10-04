@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import * as dataJson from '../../data.json';
+import { default as dataJson } from '../../data.json';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import * as dataJson from '../../data.json';
 export class DataService implements InMemoryDbService {
   constructor() {}
   createDb() {
-    let projects = dataJson.default;
+    let projects = dataJson;
 
     return { projects };
   }
