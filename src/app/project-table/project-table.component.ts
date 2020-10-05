@@ -28,15 +28,37 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectTableComponent {
   dataSource = [];
-  columnsToDisplay = [
-    'id',
-    'title',
-    'status',
-    'start_date',
-    'active',
-    'assignee',
-    'percent_complete',
+  columns = [
+    {
+      name: 'id',
+      display: 'Request #',
+    },
+    {
+      name: 'title',
+      display: 'Project Title',
+    },
+    {
+      name: 'status',
+      display: 'Status',
+    },
+    {
+      name: 'start_date',
+      display: 'Start Date',
+    },
+    {
+      name: 'active',
+      display: 'Active',
+    },
+    {
+      name: 'assignee',
+      display: 'Assigned',
+    },
+    {
+      name: 'percent_complete',
+      display: '% Complete',
+    },
   ];
+  columnsToDisplay = this.columns.map((col) => col.name);
   expandedElement: any | null;
 
   constructor(private projectService: ProjectService) {}
