@@ -33,6 +33,10 @@ export class ProjectTableComponent {
   dataSource = [];
   columns = [
     {
+      name: 'expand',
+      display: '',
+    },
+    {
       name: 'id',
       display: 'Request #',
     },

@@ -48,7 +48,8 @@
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr
     mat-row
-    *matRowDef="let element; columns: columnsToDisplay"
+    *matRowDef="let element; let i = dataIndex; columns: columnsToDisplay"
+    [ngClass]="{ gray: !(i % 2) }"
     class="example-element-row"
     [class.example-expanded-row]="expandedElement === element"
     (click)="expandedElement = expandedElement === element ? null : element"
