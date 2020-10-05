@@ -7,6 +7,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { ProjectService } from '../project.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 /**
  * @title Table with expandable rows
@@ -61,10 +63,27 @@ export class ProjectTableComponent {
   columnsToDisplay = this.columns.map((col) => col.name);
   expandedElement: any | null;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    private projectService: ProjectService,
+    private dialog: MatDialog
+  ) {}
+
+  deleteNote(project, note) {
+    const confirmDialog = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        title: 'Confirm Delete',
+        message: 'Are you sure you would like to delete this note?',
+      },
+    });
+    confirmDialog.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.projectService.deleteNote(project, note.id).subscribe(() => {});
+      }
+    });
+  }
 
   ngOnInit() {
-    this.projectService.getPolicies().subscribe((data: any[]) => {
+    this.projectService.getProjects().subscribe((data: any[]) => {
       console.log(data);
       this.dataSource = data;
     });

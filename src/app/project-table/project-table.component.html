@@ -25,7 +25,18 @@
           <h2>Justification</h2>
           {{ element.details.justification }}
           <h2>Notes</h2>
-          <div *ngFor="let note of element.notes">{{ note.note }}</div>
+          <div *ngFor="let note of element.notes">
+            <div *ngIf="note && note.note">
+              {{ note.note }}
+              <button
+                (click)="deleteNote(element, note)"
+                mat-icon-button
+                aria-label="Delete note"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </td>

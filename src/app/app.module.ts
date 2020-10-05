@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,9 +14,11 @@ import { AppComponent } from './app.component';
 import { ProjectTableComponent } from './project-table/project-table.component';
 import { DataService } from './data.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, ProjectTableComponent],
+  declarations: [AppComponent, ProjectTableComponent, ConfirmDialogComponent],
   entryComponents: [ProjectTableComponent],
   imports: [
     [
@@ -27,6 +30,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
       MatNativeDateModule,
       ReactiveFormsModule,
       MatTableModule,
+      MatIconModule,
+      MatDialogModule,
     ],
     InMemoryWebApiModule.forRoot(DataService),
   ],
