@@ -92,6 +92,7 @@ h2 {
 
 .note-row {
   display: flex;
+  padding-top: 10px;
 }
 
 .note-button {
@@ -114,4 +115,14 @@ h2 {
   padding-left: 50px;
   margin-right: 0;
   float: left;
+}
+
+::ng-deep .note-dialog .mat-dialog-container {
+  height: 400px;
+  width: 500px;
+  padding: 0;
+}
+
+::ng-deep .confirm-dialog .mat-dialog-container {
+  border: 1px solid red;
 }

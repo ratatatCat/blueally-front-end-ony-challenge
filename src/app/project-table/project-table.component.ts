@@ -75,6 +75,7 @@ export class ProjectTableComponent {
 
   addNote(project) {
     const noteDialog = this.dialog.open(NoteDialogComponent, {
+      panelClass: 'note-dialog',
       data: {
         title: 'Add Note',
       },
@@ -93,6 +94,7 @@ export class ProjectTableComponent {
 
   deleteNote(project, note) {
     const confirmDialog = this.dialog.open(ConfirmDialogComponent, {
+      panelClass: 'confirm-dialog',
       data: {
         title: 'Confirm Delete',
         message: 'Are you sure you would like to delete this note?',

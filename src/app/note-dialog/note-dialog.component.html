@@ -1,16 +1,20 @@
-<h1 mat-dialog-title>{{ data.title }}</h1>
-<div style="float: right; margin: 20px">
-  <form #noteForm="ngForm" class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Note</mat-label>
+<div class="title-div">
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+</div>
+<div>
+  <form #noteForm="ngForm">
+    <mat-label>Note:</mat-label>
+    <mat-form-field>
       <textarea matInput name="noteText" ngModel></textarea>
     </mat-form-field>
   </form>
-  <input type="button" value="Cancel" [mat-dialog-close]="false" />
-  <input
-    style="margin: 0px 10px"
-    type="button"
-    value="Save"
-    [mat-dialog-close]="noteForm.value"
-  />
+  <div class="button-div">
+    <input type="button" value="Cancel" [mat-dialog-close]="false" />
+    <input
+      class="save-button"
+      type="button"
+      value="Save"
+      [mat-dialog-close]="noteForm.value"
+    />
+  </div>
 </div>

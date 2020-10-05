@@ -1,0 +1,62 @@
+.title-div {
+  background: #2196f3;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+h1 {
+  padding-bottom: 15px;
+  color: white;
+}
+
+mat-label {
+  display: block;
+  font-weight: 900px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+textarea {
+  background: white;
+  border: 1px solid black;
+  height: 200px;
+  width: 450px;
+  text-align: left;
+}
+
+::ng-deep .mat-form-field-flex {
+  background: white !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 500px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  border: none !important;
+  text-align: center;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.button-div {
+  float: right;
+  padding-right: 20px;
+}
+
+input {
+  padding: 10px 20px 10px 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.save-button {
+  background: #2196f3;
+  color: white;
+  margin-left: 15px;
+}
