@@ -42,26 +42,41 @@
         [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
       >
         <div class="project-element-description">
-          <h2>Summary</h2>
-          {{ element.details.summary }}
-          <h2>Justification</h2>
-          {{ element.details.justification }}
-          <h2>Notes</h2>
-          <div *ngFor="let note of element.notes">
-            <div *ngIf="note && note.note">
-              {{ note.note }}
-              <button
-                (click)="deleteNote(element, note)"
-                mat-icon-button
-                aria-label="Delete note"
-              >
-                <mat-icon>close</mat-icon>
-              </button>
-            </div>
+          <div class="details-header">
+            <h1>Details/Notes</h1>
           </div>
-          <button (click)="addNote(element)" mat-button aria-label="Add note">
-            Add Note
-          </button>
+          <div class="details-content">
+            <h2>Summary</h2>
+            {{ element.details.summary }}
+            <h2>Justification</h2>
+            {{ element.details.justification }}
+            <h2>Notes</h2>
+            <div class="note-row" *ngFor="let note of element.notes">
+              <div *ngIf="note && note.note">
+                <div class="note-div">
+                  {{ note.note }}
+                </div>
+                <div class="button-div">
+                  <button
+                    (click)="deleteNote(element, note)"
+                    mat-icon-button
+                    class="red"
+                    aria-label="Delete note"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button
+              class="note-button"
+              (click)="addNote(element)"
+              mat-button
+              aria-label="Add note"
+            >
+              Add Note
+            </button>
+          </div>
         </div>
       </div>
     </td>
