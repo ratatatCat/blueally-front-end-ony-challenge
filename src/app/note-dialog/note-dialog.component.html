@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div style="float: right; margin: 20px">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Note</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </form>
+  <input type="button" value="Cancel" [mat-dialog-close]="false" />
+  <input
+    style="margin: 0px 10px"
+    type="button"
+    value="Save"
+    [mat-dialog-close]="true"
+  />
+</div>

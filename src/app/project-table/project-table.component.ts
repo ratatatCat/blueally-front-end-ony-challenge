@@ -9,6 +9,7 @@ import {
 import { ProjectService } from '../project.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { NoteDialogComponent } from '../note-dialog/note-dialog.component';
 
 /**
  * @title Table with expandable rows
@@ -67,6 +68,20 @@ export class ProjectTableComponent {
     private projectService: ProjectService,
     private dialog: MatDialog
   ) {}
+
+  addNote(project) {
+    const noteDialog = this.dialog.open(NoteDialogComponent, {
+      data: {
+        title: 'Add Note',
+      },
+    });
+    noteDialog.afterClosed().subscribe((result) => {
+      if (result === true) {
+        alert('wooha');
+        // this.projectService.deleteNote(project, note.id).subscribe(() => {});
+      }
+    });
+  }
 
   deleteNote(project, note) {
     const confirmDialog = this.dialog.open(ConfirmDialogComponent, {

@@ -16,9 +16,16 @@ import { DataService } from './data.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NoteDialogComponent } from './note-dialog/note-dialog.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [AppComponent, ProjectTableComponent, ConfirmDialogComponent],
+  declarations: [
+    AppComponent,
+    ProjectTableComponent,
+    ConfirmDialogComponent,
+    NoteDialogComponent,
+  ],
   entryComponents: [ProjectTableComponent],
   imports: [
     [
@@ -32,6 +39,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
       MatTableModule,
       MatIconModule,
       MatDialogModule,
+      MatInputModule,
     ],
     InMemoryWebApiModule.forRoot(DataService),
   ],
