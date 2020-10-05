@@ -16,8 +16,11 @@ export class ProjectService {
     return this.httpClient.get(`${this.SERVER_URL + 'projects'}/${projectId}`);
   }
 
-  public addNote(project: any, notes: Array<any>) {
-    return this.httpClient.post(`${this.SERVER_URL + 'projects'}`, project);
+  public addNote(project: any) {
+    return this.httpClient.put(
+      `${this.SERVER_URL + 'projects'}/${project.id}`,
+      project
+    );
   }
 
   public deleteNote(project: any, noteId: number) {

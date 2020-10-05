@@ -75,10 +75,14 @@ export class ProjectTableComponent {
         title: 'Add Note',
       },
     });
-    noteDialog.afterClosed().subscribe((result) => {
-      if (result === true) {
-        alert('wooha');
-        // this.projectService.deleteNote(project, note.id).subscribe(() => {});
+    noteDialog.afterClosed().subscribe((note) => {
+      if (note) {
+        project.notes.push({
+          id: project.notes[project.notes.length - 1].id + 1,
+          note: note.noteText,
+        });
+        console.log(project);
+        this.projectService.addNote(project).subscribe(() => {});
       }
     });
   }
